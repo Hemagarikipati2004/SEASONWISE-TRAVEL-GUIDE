@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SeasonWise | Find Your Perfect Getaway</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<header class="topbar"><a class="brand" href="#home"><span class="logo">▲</span><span><b>SeasonWise</b><small>Find Your Perfect Getaway</small></span></a><nav><a href="#home">Home</a><a href="#results">Destinations</a><a href="#about">About</a><button class="theme" aria-label="Toggle theme" id="theme-toggle">☼</button></nav></header>
+<main>
+<section class="hero" id="home"><div class="hero-overlay"></div><div class="hero-content"><p class="eyebrow">YOUR PERSONAL TRAVEL COMPASS</p><h1>Plan Your Trip Around the Seasons</h1><p class="hero-sub">Discover the best destinations for your travel dates with weather forecasts,<br class="desktop"> seasonal insights, crowd levels and more.</p>
+<form id="planner-form" class="search-panel"><label><span class="field-icon">▦</span><span class="field-content"><small>Travel Dates</small><span class="date-pair"><input type="date" id="start-date" aria-label="Start date" required><b>–</b><input type="date" id="end-date" aria-label="End date" required></span></span></label><label><span class="field-icon">⌖</span><span class="field-content"><small>Region</small><select id="region"><option value="India">All of India</option><option value="North">North India</option><option value="South">South India</option><option value="East">East India</option><option value="West">West India</option><option value="Central">Central India</option><option value="Northeast">Northeast India</option></select></span></label><label><span class="field-icon">♧</span><span class="field-content"><small>Destination Type</small><select id="kind"><option value="any">Any destination</option><option value="mountains">Mountains</option><option value="beach">Beaches</option><option value="nature">Nature</option><option value="adventure">Adventure</option><option value="culture">Culture</option></select></span></label><label><span class="field-icon sun">☀</span><span class="field-content"><small>Weather Preference</small><select id="weather"><option value="any">Any weather</option><option value="cold">Cold</option><option value="pleasant">Pleasant</option><option value="warm">Warm</option></select></span></label><button id="search-btn" class="primary-btn" type="submit">⌕ &nbsp; Find Best Destinations</button></form>
+<div class="feature-pills"><a href="#seasonal"><span>♧</span> Seasonal Suitability</a><a href="#weather-section"><span>☁</span> Weather Forecast</a><a href="#crowds"><span>♟</span> Crowd Prediction</a><a href="#results"><span>★</span> Ratings &amp; More</a></div></div></section>
+<section class="results-section hidden" id="results"><div class="section-heading"><div><p class="eyebrow blue">PERSONALISED FOR YOUR DATES</p><h2 id="results-title">Top Destinations for Your Trip</h2><p id="results-subtitle">Based on your travel dates and preferences.</p></div><label class="sort-label">Sort by <select id="sort-results"><option value="score">Overall Score</option><option value="rating">Rating</option><option value="season_score">Seasonal Fit</option></select></label></div><div class="directory-actions"><button id="discover-more" class="outline-btn" type="button">Explore 500+ more mapped places</button><span id="discover-status" role="status"></span></div><div id="destination-grid" class="destination-grid"></div><div id="weather-panel" class="weather-panel hidden"></div></section>
+<section class="detail-section" id="seasonal"><div class="section-heading"><div><p class="eyebrow blue">EXPLORE WITH CONFIDENCE</p><h2>Travel insights that make planning easier</h2><p>See why a destination fits your dates before you decide.</p></div></div><div class="insight-grid"><article class="insight-card"><div class="insight-photo" style="background-image:url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=900&q=85')"></div><div class="insight-body"><span class="tag green">SEASONAL GUIDE</span><h3>Find the best time to visit</h3><p>Compare recommended months and seasonal conditions for each destination.</p><a href="#results">Explore destinations →</a></div></article><article class="insight-card" id="weather-section"><div class="insight-photo" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85')"></div><div class="insight-body"><span class="tag blue-tag">WEATHER AWARE</span><h3>Plan around the forecast</h3><p>Use available forecast data for near-term trips and seasonal guidance for future travel.</p><a href="#results">Check weather notes →</a></div></article><article class="insight-card" id="crowds"><div class="insight-photo" style="background-image:url('https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=85')"></div><div class="insight-body"><span class="tag orange">CROWD INSIGHTS</span><h3>Know when places get busy</h3><p>Review estimated crowd levels around popular travel periods and holidays.</p><a href="#results">Compare crowd levels →</a></div></article></div></section>
+<section class="about-strip" id="about"><div class="about-icon">✦</div><div><p class="eyebrow blue">SEASONWISE TRAVEL GUIDE</p><h2>Better timing. Better getaways.</h2><p>Recommendations combine seasonal rules, available weather forecasts, estimated crowds and destination ratings. Forecasts and crowd levels are estimates and should be checked before booking.</p></div><a class="outline-btn" href="#home">Plan another trip ↑</a></section>
+<section class="weather-lookup" aria-labelledby="weather-lookup-title">
+  <div class="section-heading">
+    <div><p class="eyebrow blue">OPEN-METEO FORECAST</p><h2 id="weather-lookup-title">Check weather for any town</h2><p>Current modelled conditions and daily forecast are available for up to 16 days.</p></div>
+  </div>
+  <form id="weather-lookup-form" class="weather-lookup-form">
+    <label>City or town<input id="weather-location" name="location" type="text" maxlength="120" placeholder="e.g. Vijayawada or Araku Valley" required></label>
+    <label>Start date<input id="weather-start-date" name="start_date" type="date"></label>
+    <label>End date<input id="weather-end-date" name="end_date" type="date"></label>
+    <button id="weather-lookup-submit" type="submit">Check forecast</button>
+  </form>
+  <div id="weather-lookup-results" class="weather-panel" role="status" aria-live="polite" hidden></div>
+</section>
+</main>
+<div id="place-modal" class="place-modal" hidden role="dialog" aria-modal="true" aria-labelledby="place-modal-title">
+  <div class="place-modal-backdrop" data-close-modal="1"></div>
+  <article class="place-modal-card"><button class="modal-close" type="button" aria-label="Close place details" data-close-modal="1">×</button><div id="place-modal-content"><p>Loading place details…</p></div></article>
+</div>
+<footer><a class="brand" href="#home"><span class="logo">▲</span><span><b>SeasonWise</b><small>Find Your Perfect Getaway</small></span></a><p>Travel smarter, one season at a time.</p><small>Student project · Seasonal suitability and crowd levels are estimates.</small></footer><div id="toast" class="toast hidden" role="status"></div><script src="{{ url_for('static', filename='app.js') }}"></script><script src="{{ url_for('static', filename='weather.js') }}"></script><button id="chat-toggle" class="chat-toggle" aria-label="Open trip helper">Trip helper</button>
+<section id="chat-panel" class="chat-panel" hidden aria-label="Trip helper">
+  <header class="chat-head"><div><strong>Trip helper</strong><span id="chat-mode" class="chat-mode" aria-live="polite">Checking assistant…</span></div><button id="chat-close" type="button" aria-label="Close trip helper">&times;</button></header>
+  <div id="chat-log" class="chat-log" aria-live="polite" aria-relevant="additions"></div>
+  <div class="chat-location-controls">
+    <label class="sr-only" for="chat-place">Optional city or town</label>
+    <input id="chat-place" type="text" maxlength="120" placeholder="Optional city or town (e.g. Araku Valley)" autocomplete="address-level2">
+    <button id="chat-share-location" type="button">Use my location</button>
+  </div>
+  <p id="chat-location-note" class="chat-note" role="status">Location not shared. You can type a town in your question.</p>
+  <form id="chat-form" class="chat-form">
+    <label class="sr-only" for="chat-input">Ask the trip helper</label>
+    <input id="chat-input" type="text" placeholder="Ask about your trip, weather, or nearby places" maxlength="2000" autocomplete="off" required>
+    <button id="chat-send" type="submit">Send</button>
+  </form>
+</section>
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body></html>

@@ -1,4 +1,4 @@
-# SeasonWise – Seasonal Travel Recommendation System
+# SeasonWise – Travel Guide Recommendation System
 
 SeasonWise is a web-based travel recommendation application developed using Python and Flask. It helps users explore travel destinations based on seasonal suitability and access weather forecast information.
 

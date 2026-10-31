@@ -1,4 +1,4 @@
-# SEASONWISE-TRAVEL-GUIDE
+## SeasonWise – Intelligent Seasonal Travel Recommendation System with Weather Forecast Integration
 ML-Based Seasonal Travel Recommendation System using Python and Flask
 
 SeasonWise is a web-based travel recommendation project designed to help users explore suitable travel destinations based on different seasons and travel preferences.
